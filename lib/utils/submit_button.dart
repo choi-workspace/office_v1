@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../constant.dart';
 
@@ -16,18 +17,32 @@ class SubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      child: Text(
-        text.toUpperCase(),
-      ),
-      style: ElevatedButton.styleFrom(
-        minimumSize: Size.fromHeight(40),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+    return Container(
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          color: Colors.black,
+          offset: Offset(0, 5),
         ),
-        backgroundColor: tOrange,
-        padding: EdgeInsets.symmetric(vertical: 20),
+      ], borderRadius: BorderRadius.circular(25)),
+      child: ElevatedButton(
+        onPressed: onTap,
+        child: Text(
+          text.toUpperCase(),
+          style: GoogleFonts.figtree(
+            fontSize: 21,
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          minimumSize: Size.fromHeight(40),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+            side: BorderSide(
+              color: Colors.black,
+            ),
+          ),
+          backgroundColor: tOrange,
+          padding: EdgeInsets.symmetric(vertical: 20),
+        ),
       ),
     );
   }

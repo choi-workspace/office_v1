@@ -60,7 +60,7 @@ class LocationPlanSelection extends StatelessWidget {
               ),
 
               SizedBox(
-                height: 100,
+                height: 147,
               ),
 
               // select plan

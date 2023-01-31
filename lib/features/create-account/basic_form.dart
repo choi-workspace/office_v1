@@ -1,17 +1,18 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mockups/constant.dart';
+import 'package:mockups/utils/page_indicator.dart';
 import 'package:mockups/utils/submit_button.dart';
 import 'package:mockups/widgets/input_card.dart';
 
-class FillInfo extends StatefulWidget {
-  const FillInfo({super.key});
+class BasicForm extends StatefulWidget {
+  const BasicForm({super.key});
 
   @override
-  State<FillInfo> createState() => _FillInfoState();
+  State<BasicForm> createState() => _BasicFormState();
 }
 
-class _FillInfoState extends State<FillInfo> {
+class _BasicFormState extends State<BasicForm> {
   final TextEditingController nameController = TextEditingController();
 
   final TextEditingController businessController = TextEditingController();
@@ -38,6 +39,10 @@ class _FillInfoState extends State<FillInfo> {
     passwordController.dispose();
   }
 
+  void submitButton() {
+    Navigator.of(context).pop();
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -52,6 +57,15 @@ class _FillInfoState extends State<FillInfo> {
               Text(
                 "Fill in your information",
                 style: tHeadingTextStyle,
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              PageIndicator(
+                currentValue: 0,
+              ),
+              SizedBox(
+                height: 40,
               ),
               Container(
                 padding: EdgeInsets.all(100),
@@ -132,7 +146,7 @@ class _FillInfoState extends State<FillInfo> {
                           width: 20,
                         ),
                         Image.asset(
-                          tIconLogo,
+                          tInfoLogo,
                         ),
                       ],
                     ),
@@ -162,12 +176,6 @@ class _FillInfoState extends State<FillInfo> {
                                     }),
                             ],
                           ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Image.asset(
-                          tIconLogo,
                         ),
                       ],
                     ),
@@ -216,7 +224,7 @@ class _FillInfoState extends State<FillInfo> {
                 ),
                 SubmitButton(
                   text: "I Agree",
-                  onTap: () => Navigator.of(context).pop,
+                  onTap: Navigator.of(context).pop,
                 ),
               ],
             ),

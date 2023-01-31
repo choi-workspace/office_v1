@@ -17,6 +17,9 @@ class InputCard extends StatelessWidget {
             color: Color(0xFF000000),
           ),
         ),
+        SizedBox(
+          height: 5,
+        ),
         TextFormField(
           controller: controller,
           decoration: InputDecoration(
