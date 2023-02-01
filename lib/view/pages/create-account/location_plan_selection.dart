@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mockups/constant.dart';
-import 'package:mockups/widgets/plan_card.dart';
+import 'package:mockups/constants/colors.dart';
+import 'package:mockups/constants/image_string.dart';
+import 'package:mockups/constants/textstyle.dart';
+import 'package:mockups/view/widgets/plan_card.dart';
 
 class LocationPlanSelection extends StatelessWidget {
   const LocationPlanSelection({super.key});

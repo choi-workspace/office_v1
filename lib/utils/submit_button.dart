@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../constant.dart';
+import '../constants/image_string.dart';
 
 class SubmitButton extends StatelessWidget {
   final double horizontal, vertical;
@@ -14,6 +14,8 @@ class SubmitButton extends StatelessWidget {
     this.horizontal = 220,
     this.vertical = 20,
   });
+  
+  get tOrange => null;
 
   @override
   Widget build(BuildContext context) {

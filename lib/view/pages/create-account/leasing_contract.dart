@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mockups/constant.dart';
+import 'package:mockups/constants/colors.dart';
+import 'package:mockups/constants/image_string.dart';
+import 'package:mockups/constants/textstyle.dart';
 import 'package:mockups/utils/page_indicator.dart';
 import 'package:mockups/utils/submit_button.dart';
 
@@ -18,7 +20,6 @@ class LeasingContract extends StatelessWidget {
                 "Leasing Contract",
                 style: tHeadingTextStyle,
               ),
-              PageIndicator(currentValue: 1),
               Container(
                 color: Colors.white,
                 width: 705,

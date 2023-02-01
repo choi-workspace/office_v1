@@ -1,9 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:mockups/constant.dart';
+import 'package:mockups/constants/colors.dart';
+import 'package:mockups/constants/image_string.dart';
+import 'package:mockups/constants/textstyle.dart';
 import 'package:mockups/utils/page_indicator.dart';
 import 'package:mockups/utils/submit_button.dart';
-import 'package:mockups/widgets/input_card.dart';
+import 'package:mockups/view/widgets/input_card.dart';
 
 class BasicForm extends StatefulWidget {
   const BasicForm({super.key});
@@ -61,9 +63,7 @@ class _BasicFormState extends State<BasicForm> {
               SizedBox(
                 height: 40,
               ),
-              PageIndicator(
-                currentValue: 0,
-              ),
+              
               SizedBox(
                 height: 40,
               ),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mockups/constant.dart';
-import 'package:mockups/features/create-account/basic_form.dart';
-import 'package:mockups/features/create-account/leasing_contract.dart';
-import 'package:mockups/features/create-account/location_plan_selection.dart';
+import 'package:mockups/constants/colors.dart';
+import 'package:mockups/constants/image_string.dart';
+import 'package:mockups/view/pages/create-account/basic_form.dart';
+import 'package:mockups/view/pages/create-account/leasing_contract.dart';
+import 'package:mockups/view/pages/create-account/location_plan_selection.dart';
 
-import 'features/create-account/summary_info.dart';
+import 'view/pages/create-account/summary_info.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: tBeige,
       ),
-      home: SummaryInfo(),
+      home: LeasingContract(),
     );
   }
 }

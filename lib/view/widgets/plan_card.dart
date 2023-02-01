@@ -1,7 +1,9 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mockups/constant.dart';
+import 'package:mockups/constants/colors.dart';
+import 'package:mockups/constants/image_string.dart';
+import 'package:mockups/constants/textstyle.dart';
 
 class PlanCard extends StatelessWidget {
   final String periodic;

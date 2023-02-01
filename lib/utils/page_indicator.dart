@@ -1,48 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:mockups/constant.dart';
+import 'package:mockups/constants/image_string.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../constants/textstyle.dart';
+
 class PageIndicator extends StatelessWidget {
-  final int currentValue;
-  const PageIndicator({super.key, required this.currentValue});
-
-  Color getColorShape() {
-    if (currentValue == 0) {
-      return tDarkestBlue;
-    } else if (currentValue == 1) {
-      return tDarkestBlue;
-    } else if (currentValue == 2) {
-      return tDarkestBlue;
-    } else {
-      return Colors.white;
-    }
-  }
-
-  Color getColorText() {
-    if (currentValue != 0) {
-      return tDarkestBlue;
-    } else {
-      return Colors.white;
-    }
-  }
-
-  double getWidth() {
-    if (currentValue == 0) {
-      return 0;
-    } else if (currentValue == 1) {
-      return 250;
-    } else {
-      return 500;
-    }
-  }
-
-  Widget LineBar(int currentValue) {
-    return Container(
-      height: 10,
-      width: getWidth(),
-      color: tDarkestBlue,
-    );
-  }
+  final Color colorText;
+  final int sequence;
+  final Color colorShape;
+  final double width;
+  const PageIndicator({
+    super.key,
+    required this.colorText,
+    this.colorShape = Colors.white,
+    required this.width, required this.sequence,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -53,70 +25,89 @@ class PageIndicator extends StatelessWidget {
           Stack(
             children: [
               Positioned(
-                top: 20,
-                left: 100,
-                child: LineBar(currentValue),
+                top: 15,
+                left: 120,
+                height: 10,
+                width: width,
+                child: Container(),
               ),
-              Container(
-                height: 50,
-                width: double.infinity,
-                child: Row(
-                  children: [
-                    ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 3,
-                        itemBuilder: ((context, index) {
-                          return Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 95.0),
-                            child: AnimatedContainer(
-                              duration: Duration(milliseconds: 500),
-                              width: 50,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: getColorShape(),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "${index + 1}",
-                                  style: TextStyle(
-                                    color: getColorText(),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        })),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 9,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                "Basic Information",
-                style: tSmallBlueTextStyle,
-              ),
-              Text(
-                "Uploading Of Documents",
-                style: tSmallBlueTextStyle,
-              ),
-              Text(
-                "Payment Processing",
-                style: tSmallBlueTextStyle,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ProgressIndicator(
+                    text: "Basic Information",
+                    number: "1",
+                    colorText: Colors.white,
+                    colorShape: colorShape,
+                  ),
+                  ProgressIndicator(
+                    text: "Basic Information",
+                    number: "1",
+                    colorText: Colors.white,
+                    colorShape: colorShape,
+                  ),
+                  ProgressIndicator(
+                    text: "Basic Information",
+                    number: "1",
+                    colorText: Colors.white,
+                    colorShape: colorShape,
+                  ),
+                ],
               ),
             ],
           ),
         ],
       ),
+    );
+  }
+}
+
+class ProgressIndicator extends StatelessWidget {
+  final String text;
+  final String number;
+  final Color colorText;
+  final Color colorShape;
+  const ProgressIndicator({
+    Key? key,
+    required this.colorText,
+    required this.text,
+    required this.number,
+    required this.colorShape,
+  }) : super(key: key);
+  
+  get tSmallBlueTextStyle => null;
+  
+  get tDarkestBlue => null;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: tDarkestBlue,
+            ),
+          ),
+          child: CircleAvatar(
+            backgroundColor: colorShape,
+            child: Text(
+              number,
+              style: tSmallTextStyle.copyWith(color: colorText),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 9,
+        ),
+        Text(
+          text,
+          style: tSmallBlueTextStyle,
+        ),
+      ],
     );
   }
 }
